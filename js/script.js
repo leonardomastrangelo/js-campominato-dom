@@ -43,7 +43,7 @@ function myApp() {
         // inizializzo lo score
         let score = 0
         // inizializzo il msg per win/loss
-        let msg;
+        let msg = "Manco ci hai provato...";
         // dichiaro n tentativi per vincere
         const attemptsToWin = numSquares - TOTAL_BOMBS
 
