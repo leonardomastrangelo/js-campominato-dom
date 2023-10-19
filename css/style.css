@@ -39,8 +39,9 @@ main {
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.357);
+    background-color: rgba(0, 0, 0, 0.666);
     z-index: 3;
+    cursor: pointer;
 }
 
 #score-counter {
