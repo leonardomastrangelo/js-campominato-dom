@@ -16,29 +16,31 @@
 </head>
 <body>
 
-    <main class="py-5">
-        <div class="container text-center" id="app">
-            <!-- tile -->
-            <h1 class="display-4 fw-bold">Griglia Campo Minato</h1>
-            <h2 class="display-6 fw-normal">Bonus</h1>
+    <div class="wrapper">
+        <main class="py-5 position-relative">
+            <div class="container text-center" id="app">
+                <!-- tile -->
+                <h1 class="display-4 fw-bold">Griglia Campo Minato</h1>
+                <h2 class="display-6 fw-normal">Bonus</h1>
         
-            <!-- button -->
-            <button class="btn btn-success my-2">Play</button>
-
-            <!-- select -->
-            <div class="py-3">
-                <label for="difficulty">Scegli la difficoltà</label>
-                <select name="difficulty" id="difficulty">
-                    <option value="lvl-1">Trimone</option>
-                    <option value="lvl-2">IQ medio</option>
-                    <option value="lvl-3">Dio greco</option>
-                </select>
+                <!-- button -->
+                <button class="btn btn-success my-2">Play</button>
+                <!-- select -->
+                <div class="py-3">
+                    <label for="difficulty">Scegli la difficoltà</label>
+                    <select name="difficulty" id="difficulty">
+                        <option value="lvl-1">Trimone</option>
+                        <option value="lvl-2">IQ medio</option>
+                        <option value="lvl-3">Dio greco</option>
+                    </select>
+                </div>
+                <!-- Grid -->
+                <div id="play-ground"></div>
             </div>
-            <!-- Grid -->
-            <div id="play-ground"></div>
-
-        </div>
-    </main>
+            <!-- GameOver -->
+            <div id="game-over d-none"></div>
+        </main>
+    </div>
     
     <!-- JS -->
     <script src="js/utilities.js"></script>

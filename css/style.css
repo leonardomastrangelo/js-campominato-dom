@@ -1,12 +1,16 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+.wrapper {
+    width: 100%;
+    height: 100vh;
+}
 main {
     background-color: beige;
 }
 #play-ground {
-    width: 800px;
-    height: 800px;
+    width: 650px;
+    height: 650px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -27,4 +31,14 @@ main {
 .active {
     background-color: #606c38;
     color: black;
+}
+
+#game-over {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.357);
+    z-index: 3;
 }

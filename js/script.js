@@ -1,3 +1,4 @@
+"use strict"
 // creo e chiamo una funzione che racchiude tutta la mia applicazione
 myApp()
 function myApp() {
@@ -9,22 +10,10 @@ function myApp() {
     function generation() {
         // catturo il value della difficoltà scelta
         let difficulty = document.querySelector("select").value
-        // creo le condizioni per decidere quanti quadrai generare in base alla diccoltà
-        // *origin -> inizializzo il numero dei quadrati
+        // dichiaro e inizializzo il numero dei quadrati
         let numSquares = 0;
-        // (1) lvl-1 : n quadrati = 100
-        if (difficulty === "lvl-1") {
-            numSquares = 100;
-        } 
-        // (2) lvl-2 : n quadrati = 81
-        else if (difficulty === "lvl-2") {
-            numSquares = 81;
-        } 
-        // (3) lvl-3 : n quadrati = 49
-        else if (difficulty === "lvl-3") {
-            numSquares = 49;
-            
-        }
+        // chiamo la funzione che genera n quadrati in base alla difficoltà scelta
+        selectLevel(difficulty,numSquares)
         // catturo play-ground in variabile
         const playGround = document.getElementById("play-ground");
         // svuoto il play-ground come reset 
@@ -35,6 +24,11 @@ function myApp() {
             let square = drawSquare(numSquares,i);
             // appendo il quadrato nel playground
             playGround.append(square);
+        }
+
+        // DIFFICULTY SELECTION
+        function selectLevel(difficultyFN,numSquaresFN) {
+            numSquares = (difficulty === "lvl-1") ? 100 : (difficulty === "lvl-2") ? 81 : 49
         }
 
         // DRAWING FUNCTION
@@ -50,13 +44,13 @@ function myApp() {
             // inserisco il numero nel quadrato
             squareEl.innerHTML = index + 1 
             // aggiungo l'evento al click che fa cambiare il colore di sfondo del quadrato
-            squareEl.addEventListener("click", function() {
+            squareEl.addEventListener("click", function () {
                 squareEl.classList.add("active")
-            // stampo il quadrato selezionato in console
-            console.log(squareEl.innerHTML);
+                console.log(squareEl.innerHTML);
             })
             return squareEl
         }
+
 
     }
 
