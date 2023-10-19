@@ -109,7 +109,7 @@ function myApp() {
                 }
 
                 // score-counter
-                document.getElementById("score-counter").innerHTML =
+                let scoreCounter = document.getElementById("score-counter").innerHTML =
                     `
                 Score : ${score}
                 `
@@ -140,7 +140,6 @@ function myApp() {
                         gameOverEl.classList.add("d-flex")
                     }
                 }
-
                 
             }
             return squareEl
