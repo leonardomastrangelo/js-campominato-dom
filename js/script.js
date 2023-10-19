@@ -109,10 +109,12 @@ function myApp() {
                 }
 
                 // score-counter
-                let scoreCounter = document.getElementById("score-counter").innerHTML =
+                let scoreCounter = document.getElementById("score-counter")
+                scoreCounter.innerHTML =
                     `
                 Score : ${score}
                 `
+                scoreCounter.classList.remove("d-none")
                 // print clicked square on console
                 console.log(squareEl.innerHTML);
 
