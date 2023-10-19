@@ -1,0 +1,30 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+main {
+    background-color: beige;
+}
+#play-ground {
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #bc6c25;
+    border: 0;
+}
+
+.square {
+    border: 2px solid beige;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
+}
+
+.active {
+    background-color: #606c38;
+    color: black;
+}
