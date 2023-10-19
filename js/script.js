@@ -36,7 +36,6 @@ function myApp() {
         const TOTAL_BOMBS = 16
         // creo un array dove pushare le bombe tramite funzione
         const bombs = bombGeneration(numSquares);
-        console.log(bombs);
 
 
         /**
@@ -61,10 +60,12 @@ function myApp() {
             // inserisco il numero nel quadrato
             squareEl.innerHTML = index + 1 
             // aggiungo l'evento al click che fa cambiare il colore di sfondo del quadrato
-            squareEl.addEventListener("click", function () {
+            squareEl.addEventListener("click", onClick)
+            function onClick() {
                 squareEl.classList.add("active")
                 console.log(squareEl.innerHTML);
-            })
+                squareEl.removeEventListener("click", onClick)
+            }
             return squareEl
         }
 
