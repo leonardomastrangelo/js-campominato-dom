@@ -5,19 +5,25 @@ function myApp() {
     // catturo button in variabile
     const btn = document.querySelector("button");
     // metto il bottone in ascolto di un evento
-    btn.addEventListener("click", generation);
+    btn.addEventListener("click", generationGame);
     // creo la funzione che fa partire la generazione
-    function generation() {
+    function generationGame() {
+
         // catturo il value della difficoltà scelta
-        let difficulty = document.querySelector("select").value
+        let difficulty = document.querySelector("select").value;
+
         // dichiaro e inizializzo il numero dei quadrati
         let numSquares = 0;
+
         // chiamo la funzione che genera n quadrati in base alla difficoltà scelta
-        selectLevel(difficulty,numSquares)
+        selectLevel(difficulty,numSquares);
+
         // catturo play-ground in variabile
         const playGround = document.getElementById("play-ground");
+
         // svuoto il play-ground come reset 
-        playGround.innerHTML = ""
+        playGround.innerHTML = "";
+
         // creo il ciclo per stampare i quadrati
         for (let i = 0; i < numSquares; i++) {
             // genero un quadrato tramite funzione che si ripeterà in base al numero totale di quadrati
@@ -26,12 +32,23 @@ function myApp() {
             playGround.append(square);
         }
 
-        // DIFFICULTY SELECTION
+        // affido il numero di bombe ad una costante
+        const TOTAL_BOMBS = 16
+        // creo un array dove pushare le bombe tramite funzione
+        const bombs = bombGeneration(numSquares);
+        console.log(bombs);
+
+
+        /**
+         *  APP FUNCTIONS
+        */
+
+        // DIFFICULTY SELECTION FN
         function selectLevel(difficultyFN,numSquaresFN) {
             numSquares = (difficulty === "lvl-1") ? 100 : (difficulty === "lvl-2") ? 81 : 49
         }
 
-        // DRAWING FUNCTION
+        // DRAWING FN
         function drawSquare(totalSquares,index) {
             // creo il quadrato
             const squareEl = document.createElement("div");
@@ -49,6 +66,18 @@ function myApp() {
                 console.log(squareEl.innerHTML);
             })
             return squareEl
+        }
+
+        // BOMB GENERATION FN
+        function bombGeneration(numSquaresFN) {
+            const bombArray = [];
+            while (bombArray.length < TOTAL_BOMBS) {
+                let bomb = getRndInteger(1,numSquaresFN);
+                if (!bombArray.includes(bomb)) {
+                    bombArray.push(bomb)
+                }
+            }
+            return bombArray
         }
 
 
