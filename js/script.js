@@ -37,6 +37,13 @@ function myApp() {
         // creo un array dove pushare le bombe tramite funzione
         const bombs = bombGeneration(numSquares);
 
+        // dichiaro la variabile di win/loss
+        let gameOver;
+        // inizializzo lo score
+        let score = 0
+        // dichiaro n tentativi per vincere
+        const attemptsToWin = numSquares - TOTAL_BOMBS
+
 
         /**
          *  APP FUNCTIONS
@@ -61,12 +68,37 @@ function myApp() {
             squareEl.innerHTML = index + 1 
             // aggiungo l'evento al click che fa cambiare il colore di sfondo del quadrato
             squareEl.addEventListener("click", onClick)
+            /**
+             * !! MAIN ALGORITHM OF MYAPP
+             */
             function onClick() {
-                squareEl.classList.add("active")
+                // loss condition
+                if (bombs.includes(parseInt(squareEl.innerHTML))) {
+                    squareEl.classList.add("bg-danger")
+                    squareEl.innerHTML = `<i class="fa-solid fa-bomb fa-shake"></i>`
+                    squareEl.removeEventListener("click", onClick)
+                    gameOver = true;
+                } 
+                // winning condition
+                else {
+                    squareEl.classList.add("active");
+                    score++;
+                    squareEl.removeEventListener("click", onClick)
+                    if (score === attemptsToWin) {
+                        let msg = "WINNER!!!"
+                    } else {
+                        let msg = "LOOSER"
+                    }                
+                }
+                // score-counter
+                document.getElementById("score-counter").innerHTML =
+                `
+                Score : ${score}
+                `
+                // print clicked square on console
                 console.log(squareEl.innerHTML);
-                squareEl.removeEventListener("click", onClick)
             }
-            return squareEl
+                return squareEl
         }
 
         // BOMB GENERATION FN
